@@ -1,0 +1,8 @@
+// Add properties to the http://schema.org/Offer markup for all products.
+add_filter( 'woocommerce_structured_data_product', 'filter_woocommerce_structured_data_product', 10, 2 );
+function filter_woocommerce_structured_data_product( $markup, $product ) { 
+	if ( empty( $markup[ 'itemCondition' ] ) ) {
+		$markup[ 'itemCondition' ] = 'http://schema.org/NewCondition';
+	}
+	return $markup;
+}
